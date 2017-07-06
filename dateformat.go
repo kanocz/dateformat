@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-var tokenRegexp = regexp.MustCompile(`(\[[^\[]*\])|(d{3,4}|Do|D{1,2}|Mo|M{1,4}|YYYY|YY|H{1,2}|h{1,2}|m{1,2}|s{1,2}|A|a|Z{1,2})`)
+var tokenRegexp = regexp.MustCompile(`(\[[^\[]*\])|(d{3,4}|Do|D{1,2}|Mo|M{1,4}|YYYY|YY|H{1,2}|h{1,2}|m{1,2}|s{1,2}|at|A|a|Z{1,2})`)
 var magicRegexp = regexp.MustCompile(`(January|Jan|03|3|15|1|01|Monday|Mon|2006|06|02|2|04|4|05|5|PM|pm|\-0700|\-07:00)`)
 
 // DateLocale specifies how to format dates in different languages.
@@ -78,7 +78,8 @@ func Format(t time.Time, format string) string {
 //		Z: -07:00 -06:00 ... +07:00
 //		ZZ: -0700 -0600 ... +0700
 //
-//  at: at/um/...
+//  At
+//    at: at/um/à/...
 //
 //	Escaping
 //		It is possible to place arbitrary text within [] to display it as it is.
