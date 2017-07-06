@@ -56,6 +56,10 @@ var germanShortDayNames = []string{
 
 type german struct{}
 
+func (e german) At() string {
+	return "um"
+}
+
 func (e german) MonthName(index int) string {
 	return germanLongMonthNames[index]
 }

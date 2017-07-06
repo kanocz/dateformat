@@ -56,6 +56,10 @@ var frenchShortDayNames = []string{
 
 type french struct{}
 
+func (e french) At() string {
+	return "à "
+}
+
 func (e french) MonthName(index int) string {
 	return frenchLongMonthNames[index]
 }

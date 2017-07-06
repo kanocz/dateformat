@@ -56,6 +56,10 @@ var dutchShortDayNames = []string{
 
 type dutch struct{}
 
+func (e dutch) At() string {
+	return "til"
+}
+
 func (e dutch) MonthName(index int) string {
 	return dutchLongMonthNames[index]
 }

@@ -56,6 +56,10 @@ var spanishShortDayNames = []string{
 
 type spanish struct{}
 
+func (e spanish) At() string {
+	return "til"
+}
+
 func (e spanish) MonthName(index int) string {
 	return spanishLongMonthNames[index]
 }

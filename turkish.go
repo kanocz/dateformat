@@ -56,6 +56,10 @@ var turkishShortDayNames = [...]string{
 
 type turkish struct{}
 
+func (e turkish) At() string {
+	return "için"
+}
+
 func (e turkish) MonthName(index int) string {
 	return turkishLongMonthNames[index]
 }

@@ -23,6 +23,8 @@ type DateLocale interface {
 	ShortDayName(index int) string
 	// Return the ordinal value (1 = 1st, 2 = 2nd)
 	Ordinal(num int) string
+	// Return "at" string in different languages
+	At() string
 }
 
 // Formats given date in "English" locale. See FormatLocale for details.
@@ -75,6 +77,8 @@ func Format(t time.Time, format string) string {
 //	Timezone
 //		Z: -07:00 -06:00 ... +07:00
 //		ZZ: -0700 -0600 ... +0700
+//
+//  at: at/um/...
 //
 //	Escaping
 //		It is possible to place arbitrary text within [] to display it as it is.
@@ -132,6 +136,8 @@ func FormatLocale(t time.Time, format string, locale DateLocale) string {
 			return t.Format("-07:00")
 		case "ZZ":
 			return t.Format("-0700")
+		case "at":
+			return locale.At()
 		}
 
 		if token[0] == '[' && token[len(token)-1] == ']' {
